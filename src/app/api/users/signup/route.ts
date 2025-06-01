@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
 
         //check if user already exists
         const user=await User.findOne({email})
+        if(user){console.log("User already exists:", email);}
         if(user){return NextResponse.json({error:"User already exists"}, {status: 400});}
 
         //hash the password
@@ -29,6 +30,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({message:"User created successfully", user:savedUser,success:true}, {status: 201});
 
     } catch (error :any) {
+        console.error("Error in signup route:", error);
         return NextResponse .json({error:error.message || "An error occurred"}, {status: 500});
     }
 }
