@@ -8,7 +8,7 @@ import { LoaderComponent } from '@/components/loader';
 
 
 
-export default function signup() {
+export default function Signup() {
     const router = useRouter();
     
     const [user,setUser] = useState({
