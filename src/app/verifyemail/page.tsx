@@ -11,7 +11,7 @@ export default function VerifyEmail() {
 
     const verifyUserEmail = async () => {
         try {
-            axios.post('/api/users/verifyemail',{token});
+            await axios.post('/api/users/verifyemail',{token});
             setVerified(true);
         } catch (error:any) {
             setError(true);
